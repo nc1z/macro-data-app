@@ -11,6 +11,15 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const theme = createTheme({
+    palette: {
+      mode: "dark",
+      primary: {
+        main: "#6b73ff",
+      },
+      secondary: {
+        main: "#6b73ff",
+      },
+    },
     typography: {
       fontFamily: `"Poppins", "Helvetica", "Arial", sans-serif`,
       fontWeightLight: 200,
