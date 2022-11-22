@@ -2,9 +2,7 @@
 
 <!-- PROJECT LOGO -->
 
-## Project Banner Here
-
-![defaultbanner](https://user-images.githubusercontent.com/111836326/200166993-b882b92f-cbc7-4232-95da-025aef6bb906.png)
+![banner](https://user-images.githubusercontent.com/111836326/203263828-9ea85c84-d069-4f4f-878a-a14b9fe5d9dd.png)
 
 <br />
 
