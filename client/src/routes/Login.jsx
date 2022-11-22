@@ -29,7 +29,14 @@ const Login = ({ setEmail, setPassword, handleSubmit, theme }) => {
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5" sx={{ fontWeight: "medium" }}>
+          <Typography component="h1" variant="h4" sx={{ fontWeight: "medium" }}>
+            Macro Data
+          </Typography>
+          <Typography
+            component="h2"
+            variant="h5"
+            sx={{ fontWeight: "Regular" }}
+          >
             Sign in
           </Typography>
           <Box
