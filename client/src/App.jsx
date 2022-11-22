@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -25,32 +25,34 @@ function App() {
   };
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Login
-            setEmail={setEmail}
-            setPassword={setPassword}
-            handleSubmit={handleSubmit}
-            theme={theme}
-          />
-        }
-      />
-      <Route
-        path="/signup"
-        element={
-          <Signup
-            setEmail={setEmail}
-            setPassword={setPassword}
-            handleSubmit={handleSubmit}
-            theme={theme}
-          />
-        }
-      />
-      <Route path="/home" element={<Home />} />
-      <Route path="/account" element={<Account />} />
-    </Routes>
+    <ThemeProvider theme={theme}>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Login
+              setEmail={setEmail}
+              setPassword={setPassword}
+              handleSubmit={handleSubmit}
+              theme={theme}
+            />
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <Signup
+              setEmail={setEmail}
+              setPassword={setPassword}
+              handleSubmit={handleSubmit}
+              theme={theme}
+            />
+          }
+        />
+        <Route path="/home" element={<Home />} />
+        <Route path="/account" element={<Account />} />
+      </Routes>
+    </ThemeProvider>
   );
 }
 
