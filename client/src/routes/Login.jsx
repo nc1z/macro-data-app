@@ -3,10 +3,8 @@ import {
   Avatar,
   Box,
   Button,
-  Checkbox,
   Container,
   CssBaseline,
-  FormControlLabel,
   Grid,
   TextField,
   ThemeProvider,
@@ -61,10 +59,6 @@ const Login = ({ setEmail, setPassword, handleSubmit, theme }) => {
               id="password"
               autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
             />
             <Button
               type="submit"
