@@ -73,19 +73,19 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 ## Roadmap
 
 - [x] Install dependencies
-- [] Install chart dependency
-- [] Create wireframe
-- [] Create Login / Signup Page
-- [] Add account page
-- [] Add logout functionality
-- [] Manage Auth
-- [] Manage Auth Routing Context
-- [] Create Main page structure
-- [] Create Main page with dummy data
-- [] Manage state and api calls
-- [] Integrate Framer Motion for drag to reorder functionality
-- [] Add favorite or save layout functionality (saving current state after reorder to db? - to check feasibility)
-- [] Add search / filter feature, where we will filter based on text match
+- [ ] Install chart dependency
+- [ ] Create wireframe
+- [ ] Create Login / Signup Page
+- [ ] Add account page
+- [ ] Add logout functionality
+- [ ] Manage Auth
+- [ ] Manage Auth Routing Context
+- [ ] Create Main page structure
+- [ ] Create Main page with dummy data
+- [ ] Manage state and api calls
+- [ ] Integrate Framer Motion for drag to reorder functionality
+- [ ] Add favorite or save layout functionality (saving current state after reorder to db? - to check feasibility)
+- [ ] Add search / filter feature, where we will filter based on text match
 
 See the [open issues](https://github.com/nc1z/) for a full list of proposed features (and known issues).
 
