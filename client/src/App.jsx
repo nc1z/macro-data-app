@@ -10,7 +10,14 @@ import Signup from "./routes/Signup";
 function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const theme = createTheme();
+  const theme = createTheme({
+    typography: {
+      fontFamily: `"Poppins", "Helvetica", "Arial", sans-serif`,
+      fontWeightLight: 200,
+      fontWeightRegular: 400,
+      fontWeightMedium: 600,
+    },
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
