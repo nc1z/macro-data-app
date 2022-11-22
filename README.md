@@ -48,9 +48,9 @@
 
 ## About The Project
 
-### Project Image Snippet Here
+Initial wireframe:
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem
+<img width="1143" alt="MacroAppWireframe" src="https://user-images.githubusercontent.com/111836326/203259242-c7c81ec1-b971-4cc4-8394-9bdc562d3437.png">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -74,7 +74,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 - [x] Install dependencies
 - [ ] Install chart dependency
-- [ ] Create wireframe
+- [x] Create wireframe
 - [x] Create Basic Routing
 - [x] Create Login / Signup Page
 - [ ] Add account page
