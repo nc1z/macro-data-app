@@ -75,7 +75,8 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 - [x] Install dependencies
 - [ ] Install chart dependency
 - [ ] Create wireframe
-- [ ] Create Login / Signup Page
+- [x] Create Basic Routing
+- [x] Create Login / Signup Page
 - [ ] Add account page
 - [ ] Add logout functionality
 - [ ] Manage Auth
