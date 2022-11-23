@@ -7,8 +7,21 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
 
-const Nav = ({ handleLogout }) => {
+const Nav = () => {
+  const { logout } = UserAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
