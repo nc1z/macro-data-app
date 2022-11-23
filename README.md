@@ -80,6 +80,7 @@ Initial wireframe:
 - [x] Add logout functionality
 - [x] Manage Auth
 - [x] Manage Auth Routing Context
+- [x] Add Global Navbar (+Visibility only for authenticated)
 - [ ] Create Main page structure
 - [ ] Create Main page with dummy data
 - [ ] Manage state and api calls
