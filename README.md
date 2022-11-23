@@ -77,9 +77,9 @@ Initial wireframe:
 - [x] Create Basic Routing
 - [x] Create Login / Signup Page
 - [ ] Add account page
-- [ ] Add logout functionality
-- [ ] Manage Auth
-- [ ] Manage Auth Routing Context
+- [x] Add logout functionality
+- [x] Manage Auth
+- [x] Manage Auth Routing Context
 - [ ] Create Main page structure
 - [ ] Create Main page with dummy data
 - [ ] Manage state and api calls
