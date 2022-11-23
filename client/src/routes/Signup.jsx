@@ -70,7 +70,7 @@ const Signup = ({ setEmail, setPassword, handleSubmit }) => {
           </Button>
           <Grid container>
             <Grid item>
-              <Link to="/login" variant="body2" onClick={() => handleError("")}>
+              <Link to="/" variant="body2" onClick={() => handleError("")}>
                 {"Already have an account? Sign In"}
               </Link>
             </Grid>

@@ -36,7 +36,8 @@ function App() {
     e.preventDefault();
     try {
       await login(email, password);
-      navigate("/");
+      navigate("/home");
+      handleError("");
     } catch (error) {
       handleError(error.message);
       console.log(error.message);
@@ -47,7 +48,8 @@ function App() {
     e.preventDefault();
     try {
       await signUp(email, password);
-      navigate("/");
+      navigate("/home");
+      handleError("");
     } catch (error) {
       handleError(error.message);
       console.log(error.message);
@@ -58,7 +60,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Routes>
         <Route
-          path="/login"
+          path="/"
           element={
             <Login
               setEmail={setEmail}
@@ -79,8 +81,8 @@ function App() {
             />
           }
         />
-        <Route path="/" element={<ProtectedRoute />}>
-          <Route path="/" element={<Home />} />
+        <Route path="/home" element={<ProtectedRoute />}>
+          <Route path="/home" element={<Home />} />
         </Route>
         <Route path="/account" element={<ProtectedRoute />}>
           <Route path="/account" element={<Account />} />
