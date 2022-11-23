@@ -13,9 +13,10 @@ const UserContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const [error, setError] = useState("");
 
-  const signUp = (email, password) => {
-    createUserWithEmailAndPassword(auth, email, password);
+  const signUp = async (email, password) => {
+    await createUserWithEmailAndPassword(auth, email, password);
     return setDoc(doc(db, "users", email), {
       watchList: [],
     });
@@ -26,6 +27,10 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const logout = () => signOut(auth);
+
+  const handleError = (err) => {
+    setError(err);
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -38,7 +43,9 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ signUp, login, logout, user }}>
+    <UserContext.Provider
+      value={{ signUp, login, logout, handleError, user, error }}
+    >
       {children}
     </UserContext.Provider>
   );

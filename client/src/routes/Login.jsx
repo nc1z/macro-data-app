@@ -11,8 +11,11 @@ import {
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { Link } from "react-router-dom";
+import AuthError from "../components/AuthError";
+import { UserAuth } from "../context/AuthContext";
 
 const Login = ({ setEmail, setPassword, handleSubmit }) => {
+  const { handleError } = UserAuth();
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -33,6 +36,7 @@ const Login = ({ setEmail, setPassword, handleSubmit }) => {
         <Typography component="h2" variant="h5" sx={{ fontWeight: "Regular" }}>
           Sign in
         </Typography>
+        <AuthError />
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
             margin="normal"
@@ -66,7 +70,11 @@ const Login = ({ setEmail, setPassword, handleSubmit }) => {
           </Button>
           <Grid container>
             <Grid item>
-              <Link to="/signup" variant="body2">
+              <Link
+                to="/signup"
+                variant="body2"
+                onClick={() => handleError("")}
+              >
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
