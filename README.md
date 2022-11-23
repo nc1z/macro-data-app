@@ -76,7 +76,7 @@ Initial wireframe:
 - [x] Create wireframe
 - [x] Create Basic Routing
 - [x] Create Login / Signup Page
-- [ ] Add account page
+- [x] Add account page
 - [x] Add logout functionality
 - [x] Manage Auth
 - [x] Manage Auth Routing Context
