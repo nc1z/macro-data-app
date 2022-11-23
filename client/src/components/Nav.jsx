@@ -33,7 +33,7 @@ const Nav = () => {
               noWrap
               sx={{
                 mr: 2,
-                fontFamily: "monospace",
+                fontFamily: "Poppins",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
                 color: "inherit",
