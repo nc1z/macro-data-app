@@ -1,5 +1,5 @@
 import "./App.css";
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { UserAuth } from "./context/AuthContext";
@@ -58,6 +58,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Routes>
         <Route
           path="/"
@@ -66,7 +67,6 @@ function App() {
               setEmail={setEmail}
               setPassword={setPassword}
               handleSubmit={handleLogin}
-              theme={theme}
             />
           }
         />
@@ -77,7 +77,6 @@ function App() {
               setEmail={setEmail}
               setPassword={setPassword}
               handleSubmit={handleSignUp}
-              theme={theme}
             />
           }
         />

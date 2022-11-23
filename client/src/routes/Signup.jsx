@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   Container,
-  CssBaseline,
   Grid,
   TextField,
   Typography,
@@ -18,7 +17,6 @@ const Signup = ({ setEmail, setPassword, handleSubmit }) => {
   const { handleError } = UserAuth();
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
       <Box
         sx={{
           marginTop: 8,
