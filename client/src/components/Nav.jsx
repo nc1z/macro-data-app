@@ -23,10 +23,10 @@ const Nav = () => {
     }
   };
   return (
-    <AppBar position="static">
+    <AppBar position="static" color="transparent" elevation={0}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <ShowChartIcon sx={{ mr: 1 }} />
+          <ShowChartIcon sx={{ mr: 1 }} color="primary" />
           <Link to="/home">
             <Typography
               variant="h6"
