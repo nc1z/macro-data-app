@@ -8,11 +8,12 @@ import Home from "./routes/Home";
 import Login from "./routes/Login";
 import Signup from "./routes/Signup";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+import Nav from "./components/Nav";
 
 function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { signUp, login, handleError } = UserAuth();
+  const { signUp, login, handleError, user } = UserAuth();
   const navigate = useNavigate();
   const theme = createTheme({
     palette: {
@@ -59,6 +60,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      {user ? <Nav /> : null}
       <Routes>
         <Route
           path="/"
