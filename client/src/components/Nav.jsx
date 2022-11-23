@@ -27,22 +27,22 @@ const Nav = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <ShowChartIcon sx={{ mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/home"
-            sx={{
-              mr: 2,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            MACRODATA
-          </Typography>
+          <Link to="/home">
+            <Typography
+              variant="h6"
+              noWrap
+              sx={{
+                mr: 2,
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              MACRODATA
+            </Typography>
+          </Link>
           <Box
             sx={{ flexGrow: 1, display: "flex", justifyContent: "flex-end" }}
           >
