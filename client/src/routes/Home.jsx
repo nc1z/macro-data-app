@@ -1,12 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Nav from "../components/Nav";
 import { UserAuth } from "../context/AuthContext";
 
 const Home = () => {
   const { logout } = UserAuth();
   const navigate = useNavigate();
 
-  const handleClick = async () => {
+  const handleLogout = async () => {
     try {
       await logout();
       navigate("/");
@@ -15,10 +16,10 @@ const Home = () => {
     }
   };
   return (
-    <div>
+    <section>
+      <Nav handleLogout={handleLogout} />
       <h1>Home</h1>
-      <button onClick={handleClick}>Logout</button>
-    </div>
+    </section>
   );
 };
 

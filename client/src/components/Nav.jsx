@@ -1,0 +1,53 @@
+import React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import ShowChartIcon from "@mui/icons-material/ShowChart";
+import { Link } from "react-router-dom";
+
+const Nav = ({ handleLogout }) => {
+  return (
+    <AppBar position="static">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <ShowChartIcon sx={{ mr: 1 }} />
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/home"
+            sx={{
+              mr: 2,
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          >
+            MACRODATA
+          </Typography>
+          <Box
+            sx={{ flexGrow: 1, display: "flex", justifyContent: "flex-end" }}
+          >
+            <Link to="/account">
+              <Button sx={{ my: 2, color: "white", display: "block" }}>
+                Account
+              </Button>
+            </Link>
+            <Button
+              onClick={handleLogout}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Logout
+            </Button>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
+};
+export default Nav;
