@@ -1,6 +1,6 @@
 import "./App.css";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { UserAuth } from "./context/AuthContext";
 import Account from "./routes/Account";
@@ -11,7 +11,6 @@ import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import Nav from "./components/Nav";
 
 function App() {
-  const [search, setSearch] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { signUp, login, handleError, user } = UserAuth();
@@ -70,7 +69,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {user ? <Nav setSearch={setSearch} /> : null}
+      {user ? <Nav /> : null}
       <Routes>
         <Route
           path="/"
