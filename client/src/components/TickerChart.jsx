@@ -6,10 +6,18 @@ import {
   LineElement,
   Title,
   Tooltip,
+  PointElement,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-ChartJS.register(CategoryScale, LinearScale, LineElement, Title, Tooltip);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip
+);
 
 const TickerChart = ({ ticker }) => {
   const options = {
