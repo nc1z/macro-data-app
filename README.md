@@ -79,8 +79,8 @@ Initial wireframe:
 - [x] Manage Auth Routing Context
 - [x] Add Global Navbar (+Visibility only for authenticated)
 - [ ] Create Main page structure
-- [ ] Create Main page with dummy data
-- [ ] Manage state and api calls
+- [x] Create Main page with dummy data
+- [x] Manage state and api calls
 - [ ] Integrate Framer Motion for drag to reorder functionality
 - [ ] Add favorite or save layout functionality (saving current state after reorder to db? - to check feasibility)
 - [ ] Add search / filter feature, where we will filter based on text match
