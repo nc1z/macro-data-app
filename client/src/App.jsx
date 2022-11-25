@@ -11,6 +11,7 @@ import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import Nav from "./components/Nav";
 
 function App() {
+  const [search, setSearch] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { signUp, login, handleError, user } = UserAuth();
@@ -69,7 +70,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {user ? <Nav /> : null}
+      {user ? <Nav setSearch={setSearch} /> : null}
       <Routes>
         <Route
           path="/"
