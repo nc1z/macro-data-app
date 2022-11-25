@@ -3,10 +3,13 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import TickerChart from "./TickerChart";
 import styled from "styled-components";
+import { Paper } from "@mui/material";
 
 const ChartContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
 `;
 
 const Dashboard = ({ data }) => {
@@ -21,7 +24,17 @@ const Dashboard = ({ data }) => {
   return (
     <ChartContainer>
       {data.map((ticker) => (
-        <TickerChart ticker={ticker} key={ticker.ticker} />
+        <Paper
+          elevation={3}
+          sx={{
+            padding: "0.5rem",
+            background: "none",
+            border: "1px solid var(--main-border-color)",
+            borderRadius: "1rem",
+          }}
+        >
+          <TickerChart ticker={ticker} key={ticker.ticker} />
+        </Paper>
       ))}
     </ChartContainer>
   );
