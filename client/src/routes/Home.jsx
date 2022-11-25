@@ -4,9 +4,8 @@ import axios from "axios";
 
 const Home = () => {
   const [data, setData] = useState("");
-  const handleFetch = useRef(() => {});
 
-  handleFetch.current = async () => {
+  const handleFetch = async () => {
     try {
       const { data: response } = await axios.get(
         "https://www.econdb.com/api/series/?page=1&format=json"
@@ -19,8 +18,8 @@ const Home = () => {
   };
 
   useEffect(() => {
-    handleFetch.current();
-  }, [handleFetch]);
+    handleFetch();
+  }, []);
 
   return (
     <section>
