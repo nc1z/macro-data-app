@@ -7,9 +7,6 @@
 <br />
 
 <div align="center">
-  <a href="https://github.com/nc1z/">
-  Project Logo Here
-  </a>
 <h3 align="center">Macro Data App</h3>
 
   <p align="center">
@@ -96,8 +93,6 @@ See the [open issues](https://github.com/nc1z/) for a full list of proposed feat
 <!-- CONTACT -->
 
 ## Contact
-
-_Your Email Here_
 
 Project Link: https://github.com/nc1z/
 
