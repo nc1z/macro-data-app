@@ -31,8 +31,9 @@ const Dashboard = ({ data }) => {
             border: "1px solid var(--main-border-color)",
             borderRadius: "1rem",
           }}
+          key={ticker.ticker}
         >
-          <TickerChart ticker={ticker} key={ticker.ticker} />
+          <TickerChart ticker={ticker} />
         </Paper>
       ))}
     </ChartContainer>
