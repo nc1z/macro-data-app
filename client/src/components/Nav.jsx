@@ -9,6 +9,7 @@ import ShowChartIcon from "@mui/icons-material/ShowChart";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
+import { minWidth } from "@mui/system";
 
 const Nav = () => {
   const { logout } = UserAuth();
@@ -26,23 +27,26 @@ const Nav = () => {
     <AppBar position="static" color="transparent" elevation={0}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <ShowChartIcon sx={{ mr: 1 }} color="primary" />
-          <Link to="/home">
-            <Typography
-              variant="h6"
-              noWrap
-              sx={{
-                mr: 2,
-                fontFamily: "Poppins",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              MACRODATA
-            </Typography>
-          </Link>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <ShowChartIcon sx={{ mr: 1 }} color="primary" />
+            <Link to="/home">
+              <Typography
+                variant="h6"
+                noWrap
+                sx={{
+                  mr: 2,
+                  fontFamily: "Poppins",
+                  fontWeight: 700,
+                  letterSpacing: ".3rem",
+                  color: "inherit",
+                  textDecoration: "none",
+                  display: { xs: "none", md: "flex" },
+                }}
+              >
+                MACRODATA
+              </Typography>
+            </Link>
+          </Box>
           <Box
             sx={{ flexGrow: 1, display: "flex", justifyContent: "flex-end" }}
           >

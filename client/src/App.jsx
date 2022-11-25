@@ -31,6 +31,15 @@ function App() {
       fontWeightRegular: 400,
       fontWeightMedium: 600,
     },
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 300,
+        md: 431,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
   });
 
   const handleLogin = async (e) => {
