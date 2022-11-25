@@ -1,6 +1,7 @@
 import React from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
+import TickerChart from "./TickerChart";
 
 const Dashboard = ({ data }) => {
   if (!data) {
@@ -14,10 +15,7 @@ const Dashboard = ({ data }) => {
   return (
     <>
       {data.map((ticker) => (
-        <div key={ticker.ticker}>
-          <div>{ticker.description}</div>
-          <div>{ticker.ticker}</div>
-        </div>
+        <TickerChart ticker={ticker} key={ticker.ticker} />
       ))}
     </>
   );
