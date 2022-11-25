@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 const Dashboard = ({ data }) => {
+  if (!data) {
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
+
   return (
     <>
-      {data?.map((ticker, idx) => (
-        <div>
+      {data.map((ticker) => (
+        <div key={ticker.ticker}>
           <div>{ticker.description}</div>
           <div>{ticker.ticker}</div>
         </div>

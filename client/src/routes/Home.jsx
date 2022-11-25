@@ -3,7 +3,7 @@ import Dashboard from "../components/Dashboard";
 import axios from "axios";
 
 const Home = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState("");
   const handleFetch = useRef(() => {});
 
   handleFetch.current = async () => {
