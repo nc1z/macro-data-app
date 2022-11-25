@@ -9,7 +9,8 @@ import ShowChartIcon from "@mui/icons-material/ShowChart";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
-import { minWidth } from "@mui/system";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const Nav = () => {
   const { logout } = UserAuth();
@@ -48,19 +49,31 @@ const Nav = () => {
             </Link>
           </Box>
           <Box
-            sx={{ flexGrow: 1, display: "flex", justifyContent: "flex-end" }}
+            sx={{
+              flexGrow: 1,
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "center",
+            }}
           >
             <Link to="/account">
-              <Button sx={{ my: 2, color: "white", display: "block" }}>
-                Account
-              </Button>
+              <AccountCircleIcon
+                sx={{
+                  mx: 1.5,
+                  color: "white",
+                  display: "block",
+                  "&:hover": { color: "#6b73ff" },
+                }}
+              />
             </Link>
-            <Button
+            <LogoutIcon
               onClick={handleLogout}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              Logout
-            </Button>
+              sx={{
+                color: "white",
+                display: "block",
+                "&:hover": { color: "#6b73ff", cursor: "pointer" },
+              }}
+            />
           </Box>
         </Toolbar>
       </Container>
