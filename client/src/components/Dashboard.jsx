@@ -25,7 +25,6 @@ const Dashboard = ({ data }) => {
     <ChartContainer>
       {data.map((ticker) => (
         <Paper
-          elevation={3}
           sx={{
             padding: "0.5rem",
             background: "none",
