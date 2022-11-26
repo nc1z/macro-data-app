@@ -81,6 +81,9 @@ Initial wireframe:
 - [x] Create Main page structure
 - [x] Create Main page with dummy data
 - [x] Manage state and api calls
+- [x] Error Page
+- [x] Modals for each chart
+- [ ] Populate modals with data
 - [ ] Integrate Framer Motion for drag to reorder functionality
 - [ ] Add favorite or save layout functionality (saving current state after reorder to db? - to check feasibility)
 - [x] Add search / filter feature, where we will filter based on text match
