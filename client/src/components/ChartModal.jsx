@@ -11,8 +11,8 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "2px solid var(--main-border-color)",
-  boxShadow: 24,
+  border: "1px solid var(--main-border-color)",
+  borderRadius: "15px",
   p: 4,
 };
 
