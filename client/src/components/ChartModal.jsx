@@ -22,6 +22,8 @@ const ChartModal = ({ ticker }) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  console.log(ticker);
+
   return (
     <div>
       <InfoIcon onClick={handleOpen} fontSize="xs" />
@@ -33,10 +35,15 @@ const ChartModal = ({ ticker }) => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            {ticker.description}
+            {ticker.description} ({ticker.ticker})
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          <Typography
+            id="modal-modal-description"
+            sx={{ mt: 2, display: "flex", flexDirection: "column" }}
+          >
+            <span>
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            </span>
           </Typography>
         </Box>
       </Modal>
