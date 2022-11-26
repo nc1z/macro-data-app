@@ -75,11 +75,15 @@ function App() {
         <Route
           path="/"
           element={
-            <Login
-              setEmail={setEmail}
-              setPassword={setPassword}
-              handleSubmit={handleLogin}
-            />
+            user ? (
+              <Home search={search} />
+            ) : (
+              <Login
+                setEmail={setEmail}
+                setPassword={setPassword}
+                handleSubmit={handleLogin}
+              />
+            )
           }
         />
         <Route
