@@ -60,7 +60,7 @@ const TickerChart = ({ ticker }) => {
       <div>{ticker.description}</div>
       <ModalDiv>
         <div>{ticker.ticker}</div>
-        <ChartModal />
+        <ChartModal ticker={ticker} />
       </ModalDiv>
       <Line options={options} data={data} />
     </div>
