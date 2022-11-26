@@ -22,8 +22,6 @@ const ChartModal = ({ ticker }) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  console.log(ticker);
-
   return (
     <div>
       <InfoIcon onClick={handleOpen} fontSize="xs" />
