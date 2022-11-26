@@ -15,9 +15,15 @@ const Account = () => {
   }
 
   useEffect(() => {
-    onSnapshot(doc(db, "users", `${user?.email}`), (doc) => {
-      setWatchlist(doc.data().watchList);
-    });
+    try {
+      if (user?.email) {
+        onSnapshot(doc(db, "users", `${user?.email}`), (doc) => {
+          setWatchlist(doc.data().watchList);
+        });
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   }, [user?.email]);
 
   return (
@@ -25,20 +31,23 @@ const Account = () => {
       <div>Email: {user.email}</div>
       <div>Last Logged In: {dateTime.toString()}</div>
       <div>Watchlist:</div>
-      {watchlist?.map((ticker) => (
-        <Paper
-          sx={{
-            padding: "0.5rem",
-            background: "none",
-            border: "1px solid var(--main-border-color)",
-            borderRadius: "1rem",
-            maxWidth: "80vw",
-          }}
-          key={ticker.ticker}
-        >
-          {ticker.description}
-        </Paper>
-      ))}
+      <div>
+        {watchlist?.map((ticker) => (
+          <Paper
+            sx={{
+              padding: "0.5rem",
+              background: "none",
+              border: "1px solid var(--main-border-color)",
+              borderRadius: "1rem",
+              maxWidth: "80vw",
+              margin: "0 auto",
+            }}
+            key={ticker.ticker}
+          >
+            {ticker.description}
+          </Paper>
+        ))}
+      </div>
     </section>
   );
 };
