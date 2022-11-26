@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Dashboard from "../components/Dashboard";
 import axios from "axios";
 
-const Home = () => {
+const Home = ({ search }) => {
   const [data, setData] = useState("");
 
   const handleFetch = async () => {
@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <section>
-      <Dashboard data={data} />
+      <Dashboard data={data} search={search} />
     </section>
   );
 };

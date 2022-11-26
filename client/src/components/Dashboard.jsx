@@ -12,7 +12,7 @@ const ChartContainer = styled.section`
   justify-content: center;
 `;
 
-const Dashboard = ({ data }) => {
+const Dashboard = ({ data, search }) => {
   if (!data) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -23,19 +23,30 @@ const Dashboard = ({ data }) => {
 
   return (
     <ChartContainer>
-      {data.map((ticker) => (
-        <Paper
-          sx={{
-            padding: "0.5rem",
-            background: "none",
-            border: "1px solid var(--main-border-color)",
-            borderRadius: "1rem",
-          }}
-          key={ticker.ticker}
-        >
-          <TickerChart ticker={ticker} />
-        </Paper>
-      ))}
+      {data
+        .filter((ticker) => {
+          if (search === "") {
+            return ticker;
+          } else if (
+            ticker.ticker.toLowerCase().includes(search.toLowerCase()) ||
+            ticker.description.toLowerCase().includes(search.toLowerCase())
+          ) {
+            return ticker;
+          }
+        })
+        .map((ticker) => (
+          <Paper
+            sx={{
+              padding: "0.5rem",
+              background: "none",
+              border: "1px solid var(--main-border-color)",
+              borderRadius: "1rem",
+            }}
+            key={ticker.ticker}
+          >
+            <TickerChart ticker={ticker} />
+          </Paper>
+        ))}
     </ChartContainer>
   );
 };

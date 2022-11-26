@@ -93,7 +93,7 @@ function App() {
           }
         />
         <Route path="/home" element={<ProtectedRoute />}>
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<Home search={search} />} />
         </Route>
         <Route path="/account" element={<ProtectedRoute />}>
           <Route path="/account" element={<Account />} />
