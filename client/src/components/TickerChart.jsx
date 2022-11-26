@@ -13,6 +13,9 @@ import ChartModal from "./ChartModal";
 import styled from "styled-components";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase";
+import { UserAuth } from "../context/AuthContext";
 
 const ModalDiv = styled.div`
   display: flex;
@@ -31,6 +34,7 @@ ChartJS.register(
 
 const TickerChart = ({ ticker }) => {
   const [favorite, setFavorite] = useState(false);
+  const { user } = UserAuth();
 
   const options = {
     responsive: true,
@@ -58,8 +62,16 @@ const TickerChart = ({ ticker }) => {
     ],
   };
 
-  const handleFavorite = () => {
-    setFavorite(!favorite);
+  const handleFavorite = async () => {
+    const favPath = doc(db, "users", `${user?.email}`);
+    if (user?.email) {
+      setFavorite(!favorite);
+      await updateDoc(favPath, {
+        watchList: arrayUnion(ticker),
+      });
+    } else {
+      alert("Please sign in.");
+    }
   };
 
   const FavoriteIcon = () => {
