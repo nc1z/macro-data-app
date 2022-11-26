@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import TickerChart from "./TickerChart";
 import styled from "styled-components";
 import { Paper } from "@mui/material";
-import ChartModal from "./ChartModal";
 
 const ChartContainer = styled.section`
   display: flex;
@@ -46,7 +45,6 @@ const Dashboard = ({ data, search }) => {
             key={ticker.ticker}
           >
             <TickerChart ticker={ticker} />
-            <ChartModal />
           </Paper>
         ))}
     </ChartContainer>

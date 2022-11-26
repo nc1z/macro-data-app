@@ -9,6 +9,15 @@ import {
   PointElement,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import ChartModal from "./ChartModal";
+import styled from "styled-components";
+
+const ModalDiv = styled.div`
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+  align-items: center;
+`;
 
 ChartJS.register(
   CategoryScale,
@@ -49,7 +58,10 @@ const TickerChart = ({ ticker }) => {
   return (
     <div>
       <div>{ticker.description}</div>
-      <div>{ticker.ticker}</div>
+      <ModalDiv>
+        <div>{ticker.ticker}</div>
+        <ChartModal />
+      </ModalDiv>
       <Line options={options} data={data} />
     </div>
   );

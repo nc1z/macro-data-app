@@ -23,7 +23,7 @@ const ChartModal = () => {
 
   return (
     <div>
-      <InfoIcon onClick={handleOpen} />
+      <InfoIcon onClick={handleOpen} fontSize="xs" />
       <Modal
         open={open}
         onClose={handleClose}
