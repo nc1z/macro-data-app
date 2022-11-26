@@ -12,7 +12,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SearchBar from "./SearchBar";
 
-const Nav = () => {
+const Nav = ({ setSearch }) => {
   const { logout } = UserAuth();
   const navigate = useNavigate();
 
@@ -56,7 +56,7 @@ const Nav = () => {
               alignItems: "center",
             }}
           >
-            <SearchBar />
+            <SearchBar setSearch={setSearch} />
             <Link to="/account">
               <AccountCircleIcon
                 sx={{
