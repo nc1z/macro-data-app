@@ -9,6 +9,7 @@ import Login from "./routes/Login";
 import Signup from "./routes/Signup";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import Nav from "./components/Nav";
+import Error from "./routes/Error";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -106,6 +107,7 @@ function App() {
         <Route path="/account" element={<ProtectedRoute />}>
           <Route path="/account" element={<Account />} />
         </Route>
+        <Route path="*" element={<Error />} />
       </Routes>
     </ThemeProvider>
   );
