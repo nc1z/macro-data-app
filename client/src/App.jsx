@@ -1,6 +1,6 @@
 import "./App.css";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { UserAuth } from "./context/AuthContext";
 import Account from "./routes/Account";
