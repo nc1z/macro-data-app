@@ -41,6 +41,7 @@ const Dashboard = ({ data, search }) => {
               background: "none",
               border: "1px solid var(--main-border-color)",
               borderRadius: "1rem",
+              maxWidth: "80vw",
             }}
             key={ticker.ticker}
           >
