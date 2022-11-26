@@ -89,11 +89,15 @@ function App() {
         <Route
           path="/signup"
           element={
-            <Signup
-              setEmail={setEmail}
-              setPassword={setPassword}
-              handleSubmit={handleSignUp}
-            />
+            user ? (
+              <Home search={search} />
+            ) : (
+              <Signup
+                setEmail={setEmail}
+                setPassword={setPassword}
+                handleSubmit={handleSignUp}
+              />
+            )
           }
         />
         <Route path="/home" element={<ProtectedRoute />}>
