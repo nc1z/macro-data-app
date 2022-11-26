@@ -10,7 +10,6 @@ const Home = ({ search }) => {
       const { data: response } = await axios.get(
         "https://www.econdb.com/api/series/?page=1&format=json"
       );
-      console.log(response.results);
       setData(response.results);
     } catch (error) {
       console.log(error.message);
