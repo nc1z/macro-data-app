@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,12 +11,13 @@ import {
 import { Line } from "react-chartjs-2";
 import ChartModal from "./ChartModal";
 import styled from "styled-components";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
+import StarIcon from "@mui/icons-material/Star";
 
 const ModalDiv = styled.div`
   display: flex;
   gap: 0.3rem;
   justify-content: center;
-  align-items: center;
 `;
 
 ChartJS.register(
@@ -29,6 +30,8 @@ ChartJS.register(
 );
 
 const TickerChart = ({ ticker }) => {
+  const [favorite, setFavorite] = useState(false);
+
   const options = {
     responsive: true,
     plugins: {
@@ -55,9 +58,34 @@ const TickerChart = ({ ticker }) => {
     ],
   };
 
+  const handleFavorite = () => {
+    setFavorite(!favorite);
+  };
+
+  const FavoriteIcon = () => {
+    if (favorite) {
+      return (
+        <StarIcon
+          fontSize="xs"
+          sx={{ "&:hover": { cursor: "pointer" } }}
+          onClick={handleFavorite}
+        />
+      );
+    }
+    return (
+      <StarBorderIcon
+        fontSize="xs"
+        sx={{ "&:hover": { cursor: "pointer" } }}
+        onClick={handleFavorite}
+      />
+    );
+  };
+
   return (
     <div>
-      <div>{ticker.description}</div>
+      <div>
+        {ticker.description} <FavoriteIcon />
+      </div>
       <ModalDiv>
         <div>{ticker.ticker}</div>
         <ChartModal ticker={ticker} />
