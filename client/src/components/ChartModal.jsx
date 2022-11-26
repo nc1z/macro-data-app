@@ -14,6 +14,7 @@ const style = {
   border: "1px solid var(--main-border-color)",
   borderRadius: "15px",
   p: 4,
+  outline: "none",
 };
 
 const ChartModal = ({ ticker }) => {
