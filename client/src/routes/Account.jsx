@@ -1,24 +1,34 @@
 import { Paper } from "@mui/material";
-import { doc, onSnapshot } from "firebase/firestore";
+import { doc, onSnapshot, updateDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import TickerChart from "../components/TickerChart";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Account = () => {
-  const [watchlist, setWatchlist] = useState([]);
+  const [favorites, setFavorites] = useState([]);
   const { user } = UserAuth();
   const dateTime = new Date(user.metadata?.lastLoginAt * 1);
+  const favPath = doc(db, "users", `${user?.email}`);
 
-  if (!user) {
-    return <div>Not logged in</div>;
-  }
+  const unfavorite = async (selectedTicker) => {
+    try {
+      const result = favorites.filter(
+        (ticker) => ticker.ticker !== selectedTicker
+      );
+      await updateDoc(favPath, {
+        watchList: result,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   useEffect(() => {
     try {
       if (user?.email) {
-        onSnapshot(doc(db, "users", `${user?.email}`), (doc) => {
-          setWatchlist(doc.data().watchList);
+        onSnapshot(favPath, (doc) => {
+          setFavorites(doc.data().watchList);
         });
       }
     } catch (error) {
@@ -32,7 +42,7 @@ const Account = () => {
       <div>Last Logged In: {dateTime.toString()}</div>
       <div>Watchlist:</div>
       <div>
-        {watchlist?.map((ticker) => (
+        {favorites?.map((ticker) => (
           <Paper
             sx={{
               padding: "0.5rem",
@@ -41,10 +51,17 @@ const Account = () => {
               borderRadius: "1rem",
               maxWidth: "80vw",
               margin: "0 auto",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
             key={ticker.ticker}
           >
             {ticker.description}
+            <CloseIcon
+              sx={{ "&:hover": { cursor: "pointer" } }}
+              onClick={() => unfavorite(ticker.ticker)}
+            />
           </Paper>
         ))}
       </div>
