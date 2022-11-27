@@ -85,7 +85,7 @@ Initial wireframe:
 - [x] Modals for each chart
 - [ ] Populate modals with data
 - [ ] Integrate Framer Motion for drag to reorder functionality
-- [ ] Add favorite or save layout functionality (saving current state after reorder to db? - to check feasibility)
+- [x] Add favorite or save layout functionality
 - [x] Add search / filter feature, where we will filter based on text match
 - [ ] Add Landing page as default (Bonus if there is time)
 
