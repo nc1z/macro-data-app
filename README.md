@@ -83,6 +83,7 @@ Initial wireframe:
 - [x] Error Page
 - [x] Modals for each chart
 - [ ] Testing (Either Jest or Cypress)
+- [ ] Debug jsx vitest
 - [ ] Populate modals with data/information
       ~~- [ ] Integrate Framer Motion for drag to reorder functionality~~
 - [x] Add favorite or save layout functionality
