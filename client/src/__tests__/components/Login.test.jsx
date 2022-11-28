@@ -1,26 +1,81 @@
 import { beforeEach, describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Login from "../../routes/Login";
+import { AuthContextProvider } from "../../context/AuthContext";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import authMock from "../mockAuth";
 
-describe(Login, () => {
-  const onSubmit = vi.fn();
+describe("Login", () => {
+  // Mock States & Functions
+  let emailState;
+  let passwordState;
 
-  beforeEach(() => {
-    onSubmit.mockClear();
-    render(<Login onSubmit={onSubmit} />);
+  const setEmail = vi.fn((email) => {
+    emailState = email;
+    return emailState;
+  });
+  const setPassword = vi.fn((password) => {
+    passwordState = password;
+    return passwordState;
   });
 
-  it("onSubmit is called when all fields pass validation", async () => {
-    userEvent.type(getEmail(), "test@test.com");
-    userEvent.type(getPassword(), "testing");
+  const firebaseAuth = authMock;
+  const handleLogin = vi.fn((e) => {
+    e.preventDefault();
+
+    return firebaseAuth().signOut();
+  });
+
+  // TESTS
+  beforeEach(() => {
+    handleLogin.mockClear();
+    render(
+      <BrowserRouter>
+        <AuthContextProvider>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Login
+                  setEmail={setEmail}
+                  setPassword={setPassword}
+                  handleSubmit={handleLogin}
+                />
+              }
+            />
+          </Routes>
+        </AuthContextProvider>
+      </BrowserRouter>
+    );
+  });
+
+  it("handleLogin is called on Sign In Button Clicked", async () => {
     userEvent.click(getLoginButton());
 
     await waitFor(() => {
-      expect(onSubmit).toHaveBeenCalledTimes(1);
+      expect(firebaseAuth().signOut).toHaveBeenCalled();
+      expect(handleLogin).toHaveBeenCalledTimes(1);
     });
+    expect(handleLogin).toHaveReturned();
+  });
 
-    expect(onSubmit).toHaveBeenCalledWith({ lazy: true });
+  it("setState triggers when input field onChange", async () => {
+    expect(getEmail()).toHaveProperty("id", "email");
+    expect(getPassword()).toHaveProperty("id", "password");
+
+    await userEvent.type(getEmail(), "test@test.com");
+    await userEvent.type(getPassword(), "testing");
+    await waitFor(() => {
+      expect(setEmail).toHaveBeenCalledWith("test@test.com");
+      expect(setPassword).toHaveBeenCalledWith("testing");
+    });
+    // Input fields still contain input text
+    expect(getEmail()).toHaveProperty("value", "test@test.com");
+    expect(getPassword()).toHaveProperty("value", "testing");
+    // Mock State Updated
+    expect(setEmail).toHaveReturnedWith("test@test.com");
+    expect(setPassword).toHaveReturnedWith("testing");
   });
 });
 
@@ -30,7 +85,7 @@ const getEmail = () =>
   screen.getByRole("textbox", {
     name: /email address/i,
   });
-const getPassword = () => container.querySelector("#password");
+const getPassword = () => screen.getByLabelText(/password \*/i);
 
 const getLoginButton = () =>
   screen.getByRole("button", {
