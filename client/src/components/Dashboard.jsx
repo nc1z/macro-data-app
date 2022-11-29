@@ -10,6 +10,7 @@ const ChartContainer = styled.section`
   flex-wrap: wrap;
   gap: 0.8rem;
   justify-content: center;
+  margin-bottom: 1rem;
 `;
 
 const Dashboard = ({ data, search }) => {
