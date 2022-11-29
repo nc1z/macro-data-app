@@ -55,7 +55,7 @@ describe("Signup", () => {
     );
   });
 
-  it("handleLogin is called on Sign In Button Clicked", async () => {
+  it("handleSignUp is called on Sign Up Button Clicked", async () => {
     userEvent.click(getLoginButton());
 
     await waitFor(() => {
