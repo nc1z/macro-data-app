@@ -60,6 +60,8 @@ const Account = () => {
               border: "1px solid var(--main-border-color)",
               borderRadius: "1rem",
               maxWidth: "80vw",
+              backgroundColor: "rgba(255, 255, 255, 0.25)",
+              backdropFilter: "blur(5px)",
             }}
             key={ticker.ticker}
           >
