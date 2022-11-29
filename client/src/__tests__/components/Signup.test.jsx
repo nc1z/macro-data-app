@@ -1,12 +1,12 @@
 import { beforeEach, describe, it, expect, vi } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Login from "../../routes/Login";
+import Signup from "../../routes/Signup";
 import { AuthContextProvider } from "../../context/AuthContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import authMock from "../mockAuth";
 
-describe("Login", () => {
+describe("Signup", () => {
   // Mock States & Functions
   let emailState = "email";
   let passwordState = "password";
@@ -21,10 +21,10 @@ describe("Login", () => {
   });
 
   const firebaseAuth = authMock;
-  const handleLogin = vi.fn((e) => {
+  const handleSignUp = vi.fn((e) => {
     e.preventDefault();
 
-    return firebaseAuth().signInAndRetrieveDataWithEmailAndPassword(
+    return firebaseAuth().createUserAndRetrieveDataWithEmailAndPassword(
       emailState,
       passwordState
     );
@@ -32,7 +32,7 @@ describe("Login", () => {
 
   // TESTS
   beforeEach(() => {
-    handleLogin.mockClear();
+    handleSignUp.mockClear();
     setEmail.mockClear();
     setPassword.mockClear();
     render(
@@ -42,10 +42,10 @@ describe("Login", () => {
             <Route
               path="/"
               element={
-                <Login
+                <Signup
                   setEmail={setEmail}
                   setPassword={setPassword}
-                  handleSubmit={handleLogin}
+                  handleSubmit={handleSignUp}
                 />
               }
             />
@@ -60,11 +60,11 @@ describe("Login", () => {
 
     await waitFor(() => {
       expect(
-        firebaseAuth().signInAndRetrieveDataWithEmailAndPassword
+        firebaseAuth().createUserAndRetrieveDataWithEmailAndPassword
       ).toHaveBeenCalledWith(emailState, passwordState);
-      expect(handleLogin).toHaveBeenCalledTimes(1);
+      expect(handleSignUp).toHaveBeenCalledTimes(1);
     });
-    expect(handleLogin).toHaveReturned();
+    expect(handleSignUp).toHaveReturned();
   });
 
   it("setState triggers when input field onChange", async () => {
@@ -96,5 +96,5 @@ const getPassword = () => screen.getByLabelText(/password \*/i);
 
 const getLoginButton = () =>
   screen.getByRole("button", {
-    name: /sign in/i,
+    name: /sign up/i,
   });
