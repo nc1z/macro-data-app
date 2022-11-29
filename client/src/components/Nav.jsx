@@ -28,9 +28,9 @@ const Nav = ({ setSearch }) => {
     <AppBar position="static" color="transparent" elevation={0}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <ShowChartIcon sx={{ mr: 1 }} color="primary" />
-            <Link to="/home">
+          <Box>
+            <Link to="/home" style={{ display: "flex", alignItems: "center" }}>
+              <ShowChartIcon sx={{ mr: 1 }} color="primary" />
               <Typography
                 variant="h6"
                 noWrap
