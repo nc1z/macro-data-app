@@ -60,6 +60,8 @@ Initial wireframe:
 - ![HTML5 Badge](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=fff&style=for-the-badge)
 - ![CSS3 Badge](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=fff&style=for-the-badge)
 - ![styled-components Badge](https://img.shields.io/badge/styled--components-DB7093?logo=styledcomponents&logoColor=fff&style=for-the-badge)
+- ![Chart.js Badge](https://img.shields.io/badge/Chart.js-FF6384?logo=chartdotjs&logoColor=fff&style=for-the-badge)
+- ![Vitest Badge](https://img.shields.io/badge/Vitest-6E9F18?logo=vitest&logoColor=fff&style=for-the-badge)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -68,7 +70,6 @@ Initial wireframe:
 ## Roadmap
 
 - [x] Install dependencies
-- [x] Install chart dependency
 - [x] Create wireframe
 - [x] Create Basic Routing
 - [x] Create Login / Signup Page
@@ -82,13 +83,15 @@ Initial wireframe:
 - [x] Manage state and api calls
 - [x] Error Page
 - [x] Modals for each chart
-- [ ] Testing (Either Jest or Cypress)
-- [ ] Debug jsx vitest
-- [ ] Populate modals with data/information
-      ~~- [ ] Integrate Framer Motion for drag to reorder functionality~~
+- [x] Modal ticker information & explanation
+- [x] Account page favorite charts & ticker information
+- [x] Populate modals with data/information
+- ~~[ ] Integrate Framer Motion for drag to reorder functionality~~
 - [x] Add favorite or save layout functionality
 - [x] Add search / filter feature, where we will filter based on text match
-      ~~- [ ] Add Landing page as default (Bonus if there is time)~~
+- ~~[ ] Add Landing page as default (Bonus if there is time)~~
+- [ ] Testing (Vitest) - Ongoing
+  - [x] Created tests for Login page
 
 See the [open issues](https://github.com/nc1z/) for a full list of proposed features (and known issues).
 
