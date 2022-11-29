@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase";
 import CloseIcon from "@mui/icons-material/Close";
+import ChartModal from "../components/ChartModal";
+import TickerChart from "../components/TickerChart";
 
 const Account = () => {
   const [favorites, setFavorites] = useState([]);
@@ -41,7 +43,15 @@ const Account = () => {
       <div>Email: {user.email}</div>
       <div>Last Logged In: {dateTime.toString()}</div>
       <div>Watchlist:</div>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "1rem",
+          margin: "1rem auto",
+        }}
+      >
         {favorites?.map((ticker) => (
           <Paper
             sx={{
@@ -50,16 +60,15 @@ const Account = () => {
               border: "1px solid var(--main-border-color)",
               borderRadius: "1rem",
               maxWidth: "80vw",
-              margin: "0 auto",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
             }}
             key={ticker.ticker}
           >
-            {ticker.description}
+            <TickerChart ticker={ticker} />
             <CloseIcon
-              sx={{ "&:hover": { cursor: "pointer" } }}
+              sx={{
+                "&:hover": { cursor: "pointer" },
+              }}
+              fontSize="xs"
               onClick={() => unfavorite(ticker.ticker)}
             />
           </Paper>
