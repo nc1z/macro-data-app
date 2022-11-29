@@ -40,11 +40,14 @@ const Dashboard = ({ data, search }) => {
             sx={{
               padding: "0.5rem",
               background: "none",
-              border: "1px solid var(--main-border-color)",
+              border: "1px transparent var(--main-border-color)",
               borderRadius: "1rem",
               maxWidth: "80vw",
+              backgroundColor: "rgba(255, 255, 255, 0.25)",
+              backdropFilter: "blur(5px)",
             }}
             key={ticker.ticker}
+            elevation={3}
           >
             <TickerChart ticker={ticker} />
           </Paper>

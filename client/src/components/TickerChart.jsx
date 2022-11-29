@@ -46,15 +46,37 @@ const TickerChart = ({ ticker }) => {
         display: false,
       },
     },
+    scales: {
+      y: {
+        display: true,
+        grid: {
+          drawOnChartArea: true,
+          tickColor: "rgba(255, 255, 255, 0)",
+        },
+        ticks: {
+          color: "#FFFFFF",
+        },
+      },
+      x: {
+        display: true,
+        grid: {
+          drawOnChartArea: true,
+          tickColor: "rgba(255, 255, 255, 0)",
+        },
+        ticks: {
+          color: "#FFFFFF",
+        },
+      },
+    },
   };
-
+  console.log(ticker);
   const data = {
     labels: ticker.data.dates,
     datasets: [
       {
-        label: "Dataset",
+        label: ticker.dataset,
         data: ticker.data.values,
-        borderColor: "#6b73ff",
+        borderColor: "#8a90ff",
         borderWidth: 1,
         showLine: true,
         pointRadius: 0,

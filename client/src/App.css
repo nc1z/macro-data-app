@@ -6,6 +6,12 @@
   font-family: "Poppins", Helvetica, sans-serif;
 }
 
+body {
+  background-image: url("../public/Images/neonBg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
