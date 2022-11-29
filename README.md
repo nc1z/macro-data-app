@@ -92,6 +92,8 @@ Initial wireframe:
 - ~~[ ] Add Landing page as default (Bonus if there is time)~~
 - [ ] Testing (Vitest) - Ongoing
   - [x] Created tests for Login page
+- [ ] Firebase deployment
+  - [ ] Edit read-write access
 
 See the [open issues](https://github.com/nc1z/) for a full list of proposed features (and known issues).
 
