@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import InfoIcon from "@mui/icons-material/Info";
+import tickerInfo from "../TickerInfo/TickerInfo";
 
 const style = {
   position: "absolute",
@@ -39,9 +40,7 @@ const ChartModal = ({ ticker }) => {
             id="modal-modal-description"
             sx={{ mt: 2, display: "flex", flexDirection: "column" }}
           >
-            <span>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </span>
+            <span>{tickerInfo(ticker.ticker)}</span>
           </Typography>
         </Box>
       </Modal>
