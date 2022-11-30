@@ -25,10 +25,12 @@ describe("Login", () => {
   const handleLogin = vi.fn((e) => {
     e.preventDefault();
 
-    return firebaseAuth().signInAndRetrieveDataWithEmailAndPassword(
+    firebaseAuth().signInAndRetrieveDataWithEmailAndPassword(
       emailState,
       passwordState
     );
+
+    return "Firebase: Error (auth/invalid-email).";
   });
 
   // TESTS
@@ -55,6 +57,13 @@ describe("Login", () => {
       </AuthContextProvider>
     </BrowserRouter>
   );
+
+  it("Error message appears on invalid form submission", async () => {
+    await userEvent.click(getLoginButton());
+    expect(handleLogin).toHaveReturnedWith(
+      "Firebase: Error (auth/invalid-email)."
+    );
+  });
 
   it("setState triggers when input field onChange", async () => {
     expect(getEmail()).toHaveProperty("id", "email");
