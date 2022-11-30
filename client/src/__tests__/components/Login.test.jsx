@@ -5,7 +5,6 @@ import Login from "../../routes/Login";
 import { AuthContextProvider } from "../../context/AuthContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import authMock from "../mockAuth";
-import { act } from "react-dom/test-utils";
 
 describe("Login", () => {
   // Mock States & Functions
@@ -84,7 +83,7 @@ describe("Login", () => {
     expect(setPassword).toHaveReturnedWith("testing");
   });
 
-  it("handleLogin is called on Sign In Button Clicked", async () => {
+  it("handleLogin is called with latest state values when Sign In Button Clicked", async () => {
     userEvent.click(getLoginButton());
 
     await waitFor(() => {

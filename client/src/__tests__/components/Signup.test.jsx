@@ -80,7 +80,7 @@ describe("Signup", () => {
     expect(setPassword).toHaveReturnedWith("testing");
   });
 
-  it("handleSignUp is called with latest state when Sign Up Button Clicked", async () => {
+  it("handleSignUp is called with latest state values when Sign Up Button Clicked", async () => {
     userEvent.click(getSignUpButton());
 
     await waitFor(() => {
