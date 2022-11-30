@@ -43,6 +43,7 @@ const Nav = ({ setSearch }) => {
                   textDecoration: "none",
                   display: { xs: "none", md: "flex" },
                 }}
+                className="responsive"
               >
                 MACRODATA
               </Typography>
