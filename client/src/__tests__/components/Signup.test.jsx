@@ -1,5 +1,5 @@
 import { beforeEach, describe, it, expect, vi } from "vitest";
-import { render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Signup from "../../routes/Signup";
 import { AuthContextProvider } from "../../context/AuthContext";
@@ -23,11 +23,11 @@ describe("Signup", () => {
   const firebaseAuth = authMock;
   const handleSignUp = vi.fn((e) => {
     e.preventDefault();
-
-    return firebaseAuth().createUserAndRetrieveDataWithEmailAndPassword(
+    firebaseAuth().createUserAndRetrieveDataWithEmailAndPassword(
       emailState,
       passwordState
     );
+    return "Firebase: Error (auth/invalid-email).";
   });
 
   // TESTS
@@ -55,6 +55,13 @@ describe("Signup", () => {
     </BrowserRouter>
   );
 
+  it("Error message appears on invalid form submission", async () => {
+    await userEvent.click(getSignUpButton());
+    expect(handleSignUp).toHaveReturnedWith(
+      "Firebase: Error (auth/invalid-email)."
+    );
+  });
+
   it("setState triggers when input field onChange", async () => {
     expect(getEmail()).toHaveProperty("id", "email");
     expect(getPassword()).toHaveProperty("id", "password");
@@ -73,8 +80,8 @@ describe("Signup", () => {
     expect(setPassword).toHaveReturnedWith("testing");
   });
 
-  it("handleSignUp is called on Sign Up Button Clicked", async () => {
-    userEvent.click(getLoginButton());
+  it("handleSignUp is called with latest state when Sign Up Button Clicked", async () => {
+    userEvent.click(getSignUpButton());
 
     await waitFor(() => {
       expect(
@@ -86,7 +93,7 @@ describe("Signup", () => {
   });
 });
 
-// Functions ------------------->
+// Functions to get elements ------------------->
 
 const getEmail = () =>
   screen.getByRole("textbox", {
@@ -94,7 +101,7 @@ const getEmail = () =>
   });
 const getPassword = () => screen.getByLabelText(/password \*/i);
 
-const getLoginButton = () =>
+const getSignUpButton = () =>
   screen.getByRole("button", {
     name: /sign up/i,
   });
