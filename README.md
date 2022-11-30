@@ -92,6 +92,10 @@ Initial wireframe:
 - ~~[ ] Add Landing page as default (Bonus if there is time)~~
 - [ ] Testing (Vitest) - Ongoing
   - [x] Created tests for Login page
+  - [x] Created tests for Signup page
+  - [ ] Created tests for Home page
+  - [ ] Created tests for Nav Component
+  - [ ] Created tests for Account page
 - [ ] Firebase deployment
   - [ ] Edit read-write access
 
