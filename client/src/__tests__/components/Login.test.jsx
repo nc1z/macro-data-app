@@ -29,7 +29,9 @@ describe("Login", () => {
       passwordState
     );
 
-    return "Firebase: Error (auth/invalid-email).";
+    return emailState === "test@test.com" && passwordState === "testing"
+      ? "Login Success!"
+      : "Firebase: Error (auth/invalid-email).";
   });
 
   // TESTS
@@ -92,7 +94,7 @@ describe("Login", () => {
       ).toHaveBeenCalledWith("test@test.com", "testing");
       expect(handleLogin).toHaveBeenCalledTimes(1);
     });
-    expect(handleLogin).toHaveReturned();
+    expect(handleLogin).toHaveReturnedWith("Login Success!");
   });
 });
 
