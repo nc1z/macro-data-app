@@ -49,6 +49,14 @@ Initial wireframe:
 
 <img width="1143" alt="MacroAppWireframe" src="https://user-images.githubusercontent.com/111836326/203259242-c7c81ec1-b971-4cc4-8394-9bdc562d3437.png">
 
+Deployed App:
+<img width="1439" alt="Login" src="https://user-images.githubusercontent.com/111836326/204775581-9a867f7b-ef80-409d-a1d4-54efd42a5332.png">
+<img width="1440" alt="Home" src="https://user-images.githubusercontent.com/111836326/204775776-74ce2627-f471-442c-a9ea-c2edafa698ff.png">
+<img width="1440" alt="Account" src="https://user-images.githubusercontent.com/111836326/204775824-e9167acb-8581-4c51-8dee-da32317861db.png">
+
+Responsive:
+<img width="898" alt="Responsive" src="https://user-images.githubusercontent.com/111836326/204776018-e9ac6628-62de-4997-a15f-952eeed51ba5.png">
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- BUILT WITH -->
