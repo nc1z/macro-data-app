@@ -69,7 +69,6 @@ const TickerChart = ({ ticker }) => {
       },
     },
   };
-  console.log(ticker);
   const data = {
     labels: ticker.data.dates,
     datasets: [
