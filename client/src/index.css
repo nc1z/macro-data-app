@@ -70,7 +70,7 @@ button:focus-visible {
   }
 }
 
-@media (max-width: 431px) {
+@media (max-width: 535px) {
   .responsive {
     display: none !important;
   }
