@@ -35,24 +35,42 @@ describe("Signup", () => {
     handleSignUp.mockClear();
     setEmail.mockClear();
     setPassword.mockClear();
-    render(
-      <BrowserRouter>
-        <AuthContextProvider>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Signup
-                  setEmail={setEmail}
-                  setPassword={setPassword}
-                  handleSubmit={handleSignUp}
-                />
-              }
-            />
-          </Routes>
-        </AuthContextProvider>
-      </BrowserRouter>
-    );
+  });
+  render(
+    <BrowserRouter>
+      <AuthContextProvider>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Signup
+                setEmail={setEmail}
+                setPassword={setPassword}
+                handleSubmit={handleSignUp}
+              />
+            }
+          />
+        </Routes>
+      </AuthContextProvider>
+    </BrowserRouter>
+  );
+
+  it("setState triggers when input field onChange", async () => {
+    expect(getEmail()).toHaveProperty("id", "email");
+    expect(getPassword()).toHaveProperty("id", "password");
+
+    await userEvent.type(getEmail(), "jim@test.com");
+    await userEvent.type(getPassword(), "testing");
+    await waitFor(() => {
+      expect(setEmail).toHaveBeenCalledWith("jim@test.com");
+      expect(setPassword).toHaveBeenCalledWith("testing");
+    });
+    // Input fields still contain input text
+    expect(getEmail()).toHaveProperty("value", "jim@test.com");
+    expect(getPassword()).toHaveProperty("value", "testing");
+    // Mock State Updated
+    expect(setEmail).toHaveReturnedWith("jim@test.com");
+    expect(setPassword).toHaveReturnedWith("testing");
   });
 
   it("handleSignUp is called on Sign Up Button Clicked", async () => {
@@ -61,28 +79,10 @@ describe("Signup", () => {
     await waitFor(() => {
       expect(
         firebaseAuth().createUserAndRetrieveDataWithEmailAndPassword
-      ).toHaveBeenCalledWith(emailState, passwordState);
+      ).toHaveBeenCalledWith("jim@test.com", "testing");
       expect(handleSignUp).toHaveBeenCalledTimes(1);
     });
     expect(handleSignUp).toHaveReturned();
-  });
-
-  it("setState triggers when input field onChange", async () => {
-    expect(getEmail()).toHaveProperty("id", "email");
-    expect(getPassword()).toHaveProperty("id", "password");
-
-    await userEvent.type(getEmail(), "test@test.com");
-    await userEvent.type(getPassword(), "testing");
-    await waitFor(() => {
-      expect(setEmail).toHaveBeenCalledWith("test@test.com");
-      expect(setPassword).toHaveBeenCalledWith("testing");
-    });
-    // Input fields still contain input text
-    expect(getEmail()).toHaveProperty("value", "test@test.com");
-    expect(getPassword()).toHaveProperty("value", "testing");
-    // Mock State Updated
-    expect(setEmail).toHaveReturnedWith("test@test.com");
-    expect(setPassword).toHaveReturnedWith("testing");
   });
 });
 
