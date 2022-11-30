@@ -43,6 +43,8 @@
 
 ## About The Project
 
+Link: https://macro-data-demo.web.app
+
 Initial wireframe:
 
 <img width="1143" alt="MacroAppWireframe" src="https://user-images.githubusercontent.com/111836326/203259242-c7c81ec1-b971-4cc4-8394-9bdc562d3437.png">
@@ -93,10 +95,10 @@ Initial wireframe:
 - [ ] Testing (Vitest) - Ongoing
   - [x] Created tests for Login page
   - [x] Created tests for Signup page
+  - [x] Created tests for Nav Component
   - [ ] Created tests for Home page
-  - [ ] Created tests for Nav Component
   - [ ] Created tests for Account page
-- [ ] Firebase deployment
+- [x] Firebase deployment
   - [ ] Edit read-write access
 
 See the [open issues](https://github.com/nc1z/) for a full list of proposed features (and known issues).
@@ -115,6 +117,6 @@ Project Link: https://github.com/nc1z/
 
 ## Acknowledgments
 
-- <a href="">API Link</a>
+- <a href="https://www.econdb.com/api/series/GDEBTUS/?page=1">ECON DB</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
