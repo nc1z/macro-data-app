@@ -10,7 +10,7 @@
 <h3 align="center">Macro Data App</h3>
 
   <p align="center">
-    Consolidated US economics data &amp; charts for dummies (ReactJs &amp; Firebase Auth)
+    Consolidated US economics data &amp; charts with descriptions (ReactJs &amp; Firebase)
     <br />
     <a href="https://github.com/nc1z/"><strong>Explore the docs »</strong></a>
     <br />
@@ -118,6 +118,7 @@ See the [open issues](https://github.com/nc1z/) for a full list of proposed feat
 ## Contact
 
 Project Link: https://github.com/nc1z/
+Deployed App Link: https://macro-data-demo.web.app
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
